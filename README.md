@@ -3,3 +3,6 @@
 
 1. Apply [employee-directory.sql](./employee-directory.sql) script to MySQL.
 2. Build and run the app.
+
+![screenshot](src/main/resources/static/screenshot.jpg?raw=true)
+
