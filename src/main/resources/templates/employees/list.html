@@ -21,7 +21,7 @@
 <div class="container">
 
 	<a sec:authorize="hasRole('ROLE_MANAGER')" th:href="@{/employees/showFormForAdd}" class="btn btn-primary btn-sm mb-3">
-		Add Employee
+		Add Employee...
 	</a>
 	<table class="table table-bordered table-striped">
 		<thead class="table-dark">
@@ -43,7 +43,7 @@
 					<!-- add update button-->
 					<a sec:authorize="hasRole('ROLE_MANAGER')" th:href="@{/employees/showFormForUpdate(employeeId=${tempEmployee.id})}"
 					   class="btn btn-info btn-sm">
-						Update
+						Edit...
 					</a>
 					<!-- add delete button-->
 					<a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/employees/delete(employeeId=${tempEmployee.id})}"
