@@ -4,7 +4,7 @@
 1. Apply [new-employee-directory.sql](./new-employee-directory.sql) script to MySQL.
 2. Build and run the app.
 
-![screenshot](src//main/resources/static/screenshot.jpg?raw=true)
+![screenshot](/src/main/resources/static/images/screenshot.jpg?raw=true)
 
 ## Attributions
 
