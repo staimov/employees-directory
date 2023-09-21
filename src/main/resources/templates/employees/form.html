@@ -1,5 +1,7 @@
 <!DOCTYPE HTML>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head>
   <!-- Required meta tags -->
@@ -11,13 +13,12 @@
         rel="stylesheet"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
         crossorigin="anonymous">
-
+  <link rel="icon" type="images/svg+xml" th:href="@{../../images/stormtrooper.svg}"/>
   <title>Save Employee</title>
 </head>
 <body>
+  <div th:insert="~{fragments/header :: header}"/>
   <div class="container">
-    <h3>Employee Directory</h3>
-    <hr>
     <p class="h4 mb-4">Save Employee</p>
     <form action="#" th:action="@{/employees/save}"
           th:object="${employee}" method="POST">
