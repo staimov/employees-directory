@@ -27,6 +27,7 @@ public class DemoSecurityConfig {
                         .requestMatchers("/employees/showFormForUpdate").hasRole("MANAGER")
                         .requestMatchers("/employees/save").hasRole("MANAGER")
                         .requestMatchers("/employees/delete").hasRole("ADMIN")
+                        .requestMatchers("/images/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .formLogin(form ->
