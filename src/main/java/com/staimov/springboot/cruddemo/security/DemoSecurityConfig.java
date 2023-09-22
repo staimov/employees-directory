@@ -22,11 +22,16 @@ public class DemoSecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests(configurer ->
                 configurer
-                        .requestMatchers("/employees/list").hasRole("USER")
+                        .requestMatchers("/employees/showList").hasRole("USER")
                         .requestMatchers("/employees/showFormForAdd").hasRole("MANAGER")
                         .requestMatchers("/employees/showFormForUpdate").hasRole("MANAGER")
                         .requestMatchers("/employees/save").hasRole("MANAGER")
                         .requestMatchers("/employees/delete").hasRole("ADMIN")
+                        .requestMatchers("/department/showList").hasRole("USER")
+                        .requestMatchers("/department/showFormForAdd").hasRole("MANAGER")
+                        .requestMatchers("/department/showFormForUpdate").hasRole("MANAGER")
+                        .requestMatchers("/department/save").hasRole("MANAGER")
+                        .requestMatchers("/department/delete").hasRole("ADMIN")
                         .requestMatchers("/images/**").permitAll()
                         .anyRequest().authenticated()
                 )
