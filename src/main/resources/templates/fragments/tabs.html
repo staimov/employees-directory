@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      data-bs-theme="light">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+    <title>Tabs</title>
+</head>
+<body>
+    <div th:fragment="tabs(currentPage)">
+<!--        <div class="d-flex flex-row align-items-center justify-content-left mb-3">-->
+<!--            <a href="/employees/showList" class="text-decoration-none mx-2">-->
+<!--                <span class="fs-4">Employees</span>-->
+<!--            </a>-->
+<!--            <a href="/departments/showList" class="text-decoration-none mx-2">-->
+<!--                <span class="fs-4">Departments</span>-->
+<!--            </a>-->
+<!--        </div>-->
+<!--        <hr>-->
+        <ul class="nav nav-tabs mb-3">
+            <li class="nav-item">
+                <a class="nav-link fs-4" th:classappend="${currentPage == 'employees'} ? 'active' : ''"
+                   href="/employees/showList">Employees</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link fs-4" th:classappend="${currentPage == 'departments'} ? 'active' : ''"
+                   href="/departments/showList">Departments</a>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
