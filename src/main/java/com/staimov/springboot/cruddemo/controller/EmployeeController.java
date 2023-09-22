@@ -30,8 +30,8 @@ public class EmployeeController {
 
     @GetMapping("/showFormForAdd")
     public String showFormForAdd(Model model) {
-        Employee employee = new Employee();
-        model.addAttribute("employee", employee);
+        model.addAttribute("employee", new Employee());
+        model.addAttribute("departments", departmentService.findAll());
         return "/employees/employee-form";
     }
 
@@ -39,12 +39,12 @@ public class EmployeeController {
     public String showFormForUpdate(@RequestParam("employeeId") int id, Model model) {
         Employee employee = employeeService.findById(id);
         model.addAttribute("employee", employee);
+        model.addAttribute("departments", departmentService.findAll());
         return "/employees/employee-form";
     }
 
     @PostMapping("/save")
     public String saveEmployee(@ModelAttribute("employee") Employee employee) {
-        employee.setDepartment(departmentService.findById(1));
         employeeService.save(employee);
         return "redirect:/employees/showList";
     }

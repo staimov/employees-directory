@@ -31,8 +31,9 @@
         <!-- add hidden form field to handle the update -->
         <input type="hidden" th:field="*{id}">
 
-        <input type="text" th:field="*{name}"
-               class="form-control mb-4 w-25" placeholder="First name">
+        <label for="nameInput">Name</label>
+        <input id="nameInput" type="text" th:field="*{name}"
+               class="form-control mb-4 w-25" placeholder="Name">
 
         <button type="submit" class="btn btn-info col-2">Save</button>
 
