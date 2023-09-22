@@ -1,30 +1,38 @@
 CREATE DATABASE  IF NOT EXISTS `new_employee_directory`;
 USE `new_employee_directory`;
 
---
--- Table structure for table `employee`
---
-
 DROP TABLE IF EXISTS `employee`;
+DROP TABLE IF EXISTS `department`;
+
+CREATE TABLE `department` (
+                              `id` int NOT NULL AUTO_INCREMENT,
+                              `name` varchar(45) DEFAULT NULL,
+                              PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
 CREATE TABLE `employee` (
   `id` int NOT NULL AUTO_INCREMENT,
   `first_name` varchar(45) DEFAULT NULL,
   `last_name` varchar(45) DEFAULT NULL,
   `email` varchar(45) DEFAULT NULL,
+  `department_id` int NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
---
--- Data for table `employee`
---
+alter table employee
+    add constraint employee_department_fk
+        foreign key (department_id) references department (id);
+
+INSERT INTO `department` VALUES
+                             (1,'Warehouse'),
+                             (2,'IT');
 
 INSERT INTO `employee` VALUES 
-	(1,'Homer','Simpson','dad@springfield.com'),
-	(2,'Trupti','Bose','bose@mail.com'),
-	(3,'Foo','Baz','baz@mail.com'),
-	(4,'Vasya','Pupkin','vasya@mail.ru'),
-	(5,'Bart','Simpson','karamba@springfield.com');
+	(1,'Homer','Simpson','dad@springfield.com', 2),
+	(2,'Trupti','Bose','bose@mail.com', 2),
+	(3,'Foo','Baz','baz@mail.com', 1),
+	(4,'Vasya','Pupkin','vasya@mail.ru', 2),
+	(5,'Bart','Simpson','karamba@springfield.com', 1);
 
 DROP TABLE IF EXISTS `authorities`;
 DROP TABLE IF EXISTS `users`;
