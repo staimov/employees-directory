@@ -9,5 +9,4 @@ class EmployeeDirectoryAppTests {
 	@Test
 	void contextLoads() {
 	}
-
 }
