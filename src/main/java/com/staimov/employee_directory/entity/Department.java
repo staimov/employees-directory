@@ -1,6 +1,5 @@
-package com.staimov.springboot.cruddemo.entity;
+package com.staimov.employee_directory.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;

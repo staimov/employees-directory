@@ -1,4 +1,4 @@
-package com.staimov.springboot.cruddemo.security;
+package com.staimov.employee_directory.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

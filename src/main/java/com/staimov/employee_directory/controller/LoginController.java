@@ -1,4 +1,4 @@
-package com.staimov.springboot.cruddemo.controller;
+package com.staimov.employee_directory.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

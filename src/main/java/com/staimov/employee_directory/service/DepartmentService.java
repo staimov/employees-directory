@@ -1,6 +1,6 @@
-package com.staimov.springboot.cruddemo.service;
+package com.staimov.employee_directory.service;
 
-import com.staimov.springboot.cruddemo.entity.Department;
+import com.staimov.employee_directory.entity.Department;
 
 import java.util.List;
 

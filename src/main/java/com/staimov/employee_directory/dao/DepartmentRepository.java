@@ -1,6 +1,6 @@
-package com.staimov.springboot.cruddemo.dao;
+package com.staimov.employee_directory.dao;
 
-import com.staimov.springboot.cruddemo.entity.Department;
+import com.staimov.employee_directory.entity.Department;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

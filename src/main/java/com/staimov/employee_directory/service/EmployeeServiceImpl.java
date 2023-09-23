@@ -1,7 +1,7 @@
-package com.staimov.springboot.cruddemo.service;
+package com.staimov.employee_directory.service;
 
-import com.staimov.springboot.cruddemo.dao.EmployeeRepository;
-import com.staimov.springboot.cruddemo.entity.Employee;
+import com.staimov.employee_directory.dao.EmployeeRepository;
+import com.staimov.employee_directory.entity.Employee;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

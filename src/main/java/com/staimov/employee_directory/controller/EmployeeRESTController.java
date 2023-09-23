@@ -1,9 +1,9 @@
-package com.staimov.springboot.cruddemo.controller;
+package com.staimov.employee_directory.controller;
 
-import com.staimov.springboot.cruddemo.entity.Department;
-import com.staimov.springboot.cruddemo.entity.Employee;
-import com.staimov.springboot.cruddemo.service.DepartmentService;
-import com.staimov.springboot.cruddemo.service.EmployeeService;
+import com.staimov.employee_directory.entity.Department;
+import com.staimov.employee_directory.entity.Employee;
+import com.staimov.employee_directory.service.DepartmentService;
+import com.staimov.employee_directory.service.EmployeeService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

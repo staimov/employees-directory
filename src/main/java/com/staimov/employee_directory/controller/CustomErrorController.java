@@ -1,4 +1,4 @@
-package com.staimov.springboot.cruddemo.controller;
+package com.staimov.employee_directory.controller;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.http.HttpServletRequest;

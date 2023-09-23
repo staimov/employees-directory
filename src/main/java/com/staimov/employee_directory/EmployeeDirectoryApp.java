@@ -1,4 +1,4 @@
-package com.staimov.springboot.cruddemo;
+package com.staimov.employee_directory;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
