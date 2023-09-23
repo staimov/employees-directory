@@ -2,18 +2,16 @@ package com.staimov.springboot.cruddemo.controller;
 
 import com.staimov.springboot.cruddemo.entity.Department;
 import com.staimov.springboot.cruddemo.service.DepartmentService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/departments")
-public class DepartmentController {
+@RequestMapping("/view/departments")
+public class DepartmentUIController {
     private DepartmentService departmentService;
 
-    @Autowired
-    public DepartmentController(DepartmentService departmentService) {
+    public DepartmentUIController(DepartmentService departmentService) {
         this.departmentService = departmentService;
     }
 
@@ -41,12 +39,12 @@ public class DepartmentController {
     @PostMapping("/save")
     public String saveDepartment(@ModelAttribute("department") Department department) {
         departmentService.save(department);
-        return "redirect:/departments/showList";
+        return "redirect:/view/departments/showList";
     }
 
     @GetMapping("/delete")
     public String deleteDepartment(@RequestParam("departmentId") int id) {
         departmentService.deleteById(id);
-        return "redirect:/departments/showList";
+        return "redirect:/view/departments/showList";
     }
 }

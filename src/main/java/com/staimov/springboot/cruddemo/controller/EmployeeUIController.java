@@ -3,19 +3,17 @@ package com.staimov.springboot.cruddemo.controller;
 import com.staimov.springboot.cruddemo.entity.Employee;
 import com.staimov.springboot.cruddemo.service.DepartmentService;
 import com.staimov.springboot.cruddemo.service.EmployeeService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.ui.Model;
 
 @Controller
-@RequestMapping("/employees")
-public class EmployeeController {
+@RequestMapping("/view/employees")
+public class EmployeeUIController {
     private EmployeeService employeeService;
     private DepartmentService departmentService;
 
-    @Autowired
-    public EmployeeController(EmployeeService employeeService, DepartmentService departmentService) {
+    public EmployeeUIController(EmployeeService employeeService, DepartmentService departmentService) {
         this.employeeService = employeeService;
         this.departmentService = departmentService;
     }
@@ -46,12 +44,12 @@ public class EmployeeController {
     @PostMapping("/save")
     public String saveEmployee(@ModelAttribute("employee") Employee employee) {
         employeeService.save(employee);
-        return "redirect:/employees/showList";
+        return "redirect:/view/employees/showList";
     }
 
     @GetMapping("/delete")
     public String deleteEmployee(@RequestParam("employeeId") int id) {
         employeeService.deleteById(id);
-        return "redirect:/employees/showList";
+        return "redirect:/view/employees/showList";
     }
 }
