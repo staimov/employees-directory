@@ -8,7 +8,7 @@ CREATE TABLE `department` (
                               `id` int NOT NULL AUTO_INCREMENT,
                               `name` varchar(45) DEFAULT NULL,
                               PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb3;
 
 CREATE TABLE `employee` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -17,22 +17,29 @@ CREATE TABLE `employee` (
   `email` varchar(45) DEFAULT NULL,
   `department_id` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb3;
 
 alter table employee
     add constraint employee_department_fk
         foreign key (department_id) references department (id);
 
 INSERT INTO `department` VALUES
-                             (1,'Warehouse'),
-                             (2,'IT');
+                             (1,'Flight Squadrons'),
+                             (2,'Interrogation Group'),
+                             (3,'Garrison'),
+                             (4,'Command'),
+                             (5,'Warehouse'),
+                             (6,'IT'),
+                             (7,'Hangar');
 
 INSERT INTO `employee` VALUES 
-	(1,'Homer','Simpson','dad@springfield.com', 2),
-	(2,'Trupti','Bose','bose@mail.com', 2),
-	(3,'Foo','Baz','baz@mail.com', 1),
-	(4,'Vasya','Pupkin','vasya@mail.ru', 2),
-	(5,'Bart','Simpson','karamba@springfield.com', 1);
+	(1,'Darth','Vader','vader@galactic-empire.gov', 4),
+	(2,'Moradmin','Bast','m.bast@galactic-empire.gov', 4),
+	(3,'Iden','Versio','versio123@mail.com', 1),
+	(4,'Wilhuff','Tarkin','supervisor@death-star.com', 4),
+    (5,'Ansin','Thobel','trooper5@death-star.com', 3),
+    (6,'IT-O',null,null,2),
+	(7,'Kela','Neerik','kitty01@mail.com', 1);
 
 DROP TABLE IF EXISTS `authorities`;
 DROP TABLE IF EXISTS `users`;
@@ -46,7 +53,7 @@ CREATE TABLE `users` (
                          `password` char(68) NOT NULL,
                          `enabled` tinyint NOT NULL,
                          PRIMARY KEY (`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Inserting data for table `users`
@@ -74,7 +81,7 @@ CREATE TABLE `authorities` (
                                `authority` varchar(50) NOT NULL,
                                UNIQUE KEY `authorities4_idx_1` (`username`,`authority`),
                                CONSTRAINT `authorities4_ibfk_1` FOREIGN KEY (`username`) REFERENCES `users` (`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Inserting data for table `authorities`
