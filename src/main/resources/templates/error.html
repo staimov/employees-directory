@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" data-bs-theme="light">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS default-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+        rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+        crossorigin="anonymous">
+
+  <title>Error</title>
+  <link rel="icon" type="images/svg+xml" th:href="@{../../images/stormtrooper.svg}"/>
+</head>
+<body class="bg-light">
+
+<div th:insert="~{fragments/header :: header}"/>
+
+  <div class="container d-flex flex-column text-danger">
+    <h4 class="mb-3" th:text="${message}"/>
+    <h6 class="mb-3" th:if="${status != null}" th:text="'HTTP Status: ' + ${status}"/>
+    <h6 class="mb-3" th:if="${exception != null}" th:text="'Exception: ' + ${exception}"/>
+    <hr>
+    <a th:href="@{/}">Back to Home page</a>
+  </div>
+
+</body>
+</html>
