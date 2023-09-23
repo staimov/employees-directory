@@ -24,7 +24,7 @@
 
     <div th:insert="~{fragments/tabs :: tabs(currentPage='departments')}"/>
 
-    <a sec:authorize="hasRole('ROLE_MANAGER')" th:href="@{/departments/showFormForAdd}"
+    <a sec:authorize="hasRole('ROLE_MANAGER')" th:href="@{/view/departments/showFormForAdd}"
        class="btn btn-primary btn-sm mb-3">
         Add Department...
     </a>
@@ -43,13 +43,13 @@
             <td>
                 <!-- add update button-->
                 <a sec:authorize="hasRole('ROLE_MANAGER')"
-                   th:href="@{/departments/showFormForUpdate(departmentId=${tempDepartment.id})}"
+                   th:href="@{/view/departments/showFormForUpdate(departmentId=${tempDepartment.id})}"
                    class="btn btn-info btn-sm">
                     Edit...
                 </a>
                 <!-- add delete button-->
                 <a sec:authorize="hasRole('ROLE_ADMIN')"
-                   th:href="@{/departments/delete(departmentId=${tempDepartment.id})}"
+                   th:href="@{/view/departments/delete(departmentId=${tempDepartment.id})}"
                    class="btn btn-danger btn-sm"
                    onclick="if (!(confirm('Are you sure you want to delete this department?'))) return false">
                     Delete

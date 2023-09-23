@@ -25,7 +25,7 @@
     <div th:insert="~{fragments/tabs :: tabs(currentPage='employees')}"/>
 
     <p class="h4 mb-4">Save Employee</p>
-    <form action="#" th:action="@{/employees/save}"
+    <form action="#" th:action="@{/view/employees/save}"
           th:object="${employee}" method="POST">
 
       <label th:hidden="*{id == 0}" for="idInput">#</label>
@@ -56,7 +56,7 @@
 
     </form>
     <hr>
-    <a th:href="@{/employees/showList}">Back to Employees List</a>
+    <a th:href="@{/view/employees/showList}">Back to Employees List</a>
   </div>
 </body>
 </html>

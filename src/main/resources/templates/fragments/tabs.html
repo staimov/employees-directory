@@ -15,23 +15,14 @@
 </head>
 <body>
     <div th:fragment="tabs(currentPage)">
-<!--        <div class="d-flex flex-row align-items-center justify-content-left mb-3">-->
-<!--            <a href="/employees/showList" class="text-decoration-none mx-2">-->
-<!--                <span class="fs-4">Employees</span>-->
-<!--            </a>-->
-<!--            <a href="/departments/showList" class="text-decoration-none mx-2">-->
-<!--                <span class="fs-4">Departments</span>-->
-<!--            </a>-->
-<!--        </div>-->
-<!--        <hr>-->
         <ul class="nav nav-tabs mb-3">
             <li class="nav-item">
                 <a class="nav-link fs-4" th:classappend="${currentPage == 'employees'} ? 'active' : ''"
-                   href="/employees/showList">Employees</a>
+                   href="/view/employees/showList">Employees</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link fs-4" th:classappend="${currentPage == 'departments'} ? 'active' : ''"
-                   href="/departments/showList">Departments</a>
+                   href="/view/departments/showList">Departments</a>
             </li>
         </ul>
     </div>
