@@ -1,5 +1,7 @@
 package com.staimov.springboot.cruddemo.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -27,5 +29,6 @@ public class Department {
             orphanRemoval = false,
             fetch = FetchType.LAZY)
     @ToString.Exclude
+    @JsonIgnore
     private Set<Employee> employees;
 }
