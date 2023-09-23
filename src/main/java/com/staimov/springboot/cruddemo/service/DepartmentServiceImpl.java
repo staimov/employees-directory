@@ -2,7 +2,6 @@ package com.staimov.springboot.cruddemo.service;
 
 import com.staimov.springboot.cruddemo.dao.DepartmentRepository;
 import com.staimov.springboot.cruddemo.entity.Department;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,7 +11,6 @@ import java.util.Optional;
 public class DepartmentServiceImpl implements DepartmentService {
     private DepartmentRepository departmentRepository;
 
-    @Autowired
     public DepartmentServiceImpl(DepartmentRepository departmentRepository) {
         this.departmentRepository = departmentRepository;
     }
