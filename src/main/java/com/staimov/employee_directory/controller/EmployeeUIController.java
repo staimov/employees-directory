@@ -13,7 +13,6 @@ import org.springframework.ui.Model;
 @Controller
 @RequestMapping("/view/employees")
 public class EmployeeUIController {
-    private static final Logger logger = LoggerFactory.getLogger(EmployeeUIController.class);
 
     private EmployeeService employeeService;
     private DepartmentService departmentService;
@@ -26,7 +25,6 @@ public class EmployeeUIController {
     // add mapping for "/showList"
     @GetMapping("/showList")
     public String listEmployees(HttpServletRequest request, Model model) {
-        logger.debug(request.getMethod() + " " + request.getRequestURL().toString());
         // add to the spring model
         model.addAttribute("employees", employeeService.findAllByOrderByLastNameAsc());
         return "/employees/employee-list";
@@ -34,7 +32,6 @@ public class EmployeeUIController {
 
     @GetMapping("/showFormForAdd")
     public String showFormForAdd(HttpServletRequest request, Model model) {
-        logger.debug(request.getMethod() + " " + request.getRequestURL().toString());
         model.addAttribute("employee", new Employee());
         model.addAttribute("departments", departmentService.findAll());
         return "/employees/employee-form";
@@ -42,7 +39,6 @@ public class EmployeeUIController {
 
     @GetMapping("/showFormForUpdate")
     public String showFormForUpdate(HttpServletRequest request, @RequestParam("employeeId") int id, Model model) {
-        logger.debug(request.getMethod() + " " + request.getRequestURL().toString());
         Employee employee = employeeService.findById(id);
         model.addAttribute("employee", employee);
         model.addAttribute("departments", departmentService.findAll());
@@ -51,14 +47,12 @@ public class EmployeeUIController {
 
     @PostMapping("/save")
     public String saveEmployee(HttpServletRequest request, @ModelAttribute("employee") Employee employee) {
-        logger.debug(request.getMethod() + " " + request.getRequestURL().toString());
         employeeService.save(employee);
         return "redirect:/view/employees/showList";
     }
 
     @GetMapping("/delete")
     public String deleteEmployee(HttpServletRequest request, @RequestParam("employeeId") int id) {
-        logger.debug(request.getMethod() + " " + request.getRequestURL().toString());
         employeeService.deleteById(id);
         return "redirect:/view/employees/showList";
     }
