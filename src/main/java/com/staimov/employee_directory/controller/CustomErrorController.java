@@ -33,7 +33,10 @@ public class CustomErrorController extends AbstractErrorController {
         HttpStatus status = getStatus(request);
         Exception e = (Exception) request.getAttribute(RequestDispatcher.ERROR_EXCEPTION);
 
+        logger.error("Something went wrong! Status: {}", status);
+
         if (e != null) {
+            logger.error("An exception occurred!", e);
             body.put("exception", e.getMessage());
         }
 
