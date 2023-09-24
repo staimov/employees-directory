@@ -31,11 +31,20 @@
         <!-- add hidden form field to handle the update -->
         <input type="hidden" th:field="*{id}">
 
-        <label for="nameInput">Name</label>
-        <input id="nameInput" type="text" th:field="*{name}"
-               class="form-control mb-4 w-25" placeholder="Name">
+        <div class="row mb-2 align-items-center">
+            <label for="nameInput" class="col-1 col-form-label">Name</label>
+            <div class="col-11">
+                <input id="nameInput" type="text" th:field="*{name}"
+                       class="form-control w-25" placeholder="Name">
+            </div>
+        </div>
 
-        <button type="submit" class="btn btn-info col-2">Save</button>
+        <div class="row mt-4">
+            <div class="col-1"></div>
+            <div class="col-11">
+                <button type="submit" class="btn btn-info w-25">Save</button>
+            </div>
+        </div>
 
     </form>
     <hr>

@@ -28,31 +28,54 @@
     <form action="#" th:action="@{/view/employees/save}"
           th:object="${employee}" method="POST">
 
-      <label th:hidden="*{id == 0}" for="idInput">#</label>
-      <input id="idInput" th:hidden="*{id == 0}" readonly th:field="*{id}"
-             class="form-control mb-4 w-25">
-
-      <label for="firstNameInput">First name</label>
-      <input id="firstNameInput" type="text" th:field="*{firstName}"
-             class="form-control mb-4 w-25" placeholder="First name">
-
-      <label for="lastNameInput">Last name</label>
-      <input id="lastNameInput" type="text" th:field="*{lastName}"
-             class="form-control mb-4 w-25" placeholder="Last name">
-
-      <label for="emailInput">Email</label>
-      <input id="emailInput" type="text" th:field="*{email}"
-             class="form-control mb-4 w-25" placeholder="Email">
-
-      <div class="form-group">
-        <label for="departmentSelect">Department</label>
-        <select class="form-control mb-4 w-25" id="departmentSelect" th:field="*{department}" required>
-          <option th:each="department : ${departments}"
-            th:value="${department.id}" th:text="${department.name}"></option>
-        </select>
+      <div class="row mb-2 align-items-center" th:hidden="*{id == 0}">
+        <label th:hidden="*{id == 0}" for="idInput" class="col-1 col-form-label">#</label>
+        <div class="col-11">
+          <input id="idInput" readonly th:field="*{id}"
+                 class="form-control w-25">
+        </div>
       </div>
 
-      <button type="submit" class="btn btn-info col-2">Save</button>
+      <div class="row mb-2 align-items-center">
+        <label for="firstNameInput" class="col-1 col-form-label">First name</label>
+        <div class="col-11">
+          <input id="firstNameInput" type="text" th:field="*{firstName}"
+                 class="form-control w-25" placeholder="First name">
+        </div>
+      </div>
+
+      <div class="row mb-2 align-items-center">
+        <label for="lastNameInput" class="col-1 col-form-label">Last name</label>
+        <div class="col-11">
+          <input id="lastNameInput" type="text" th:field="*{lastName}"
+                 class="form-control w-25" placeholder="Last name">
+        </div>
+      </div>
+
+      <div class="row mb-2 align-items-center">
+        <label for="emailInput" class="col-1 col-form-label">Email</label>
+        <div class="col-11">
+          <input id="emailInput" type="text" th:field="*{email}"
+                 class="form-control w-25" placeholder="Email">
+        </div>
+      </div>
+
+      <div class="form-group row mb-2 align-items-center">
+        <label for="departmentSelect" class="col-1 col-form-label">Department</label>
+        <div class="col-11">
+          <select class="form-control w-25" id="departmentSelect" th:field="*{department}" required>
+            <option th:each="department : ${departments}"
+              th:value="${department.id}" th:text="${department.name}"></option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col-1"></div>
+        <div class="col-11">
+          <button type="submit" class="btn btn-info w-25">Save</button>
+        </div>
+      </div>
 
     </form>
     <hr>
