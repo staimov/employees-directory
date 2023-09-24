@@ -29,7 +29,14 @@ public class CustomErrorController extends AbstractErrorController {
     public ResponseEntity<Map<String, Object>> handleError(HttpServletRequest request) {
         Map<String, Object> body =
                 this.getErrorAttributes(request, ErrorAttributeOptions.defaults());
+
         HttpStatus status = getStatus(request);
+        Exception e = (Exception) request.getAttribute(RequestDispatcher.ERROR_EXCEPTION);
+
+        if (e != null) {
+            body.put("exception", e.getMessage());
+        }
+
         return new ResponseEntity<>(body, status);
     }
 
