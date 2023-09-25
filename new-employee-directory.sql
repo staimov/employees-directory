@@ -39,7 +39,7 @@ INSERT INTO `employee` VALUES
 	(4,'Wilhuff','Tarkin','supervisor@death-star.com', 4),
     (5,'Ansin','Thobel','trooper5@death-star.com', 3),
     (6,'IT-O',null,null,2),
-	(7,'Kela','Neerik','kitty01@mail.com', 1);
+	(7,'Kela','Neerik','hello-kitty01@mail.com', 1);
 
 DROP TABLE IF EXISTS `authorities`;
 DROP TABLE IF EXISTS `users`;
