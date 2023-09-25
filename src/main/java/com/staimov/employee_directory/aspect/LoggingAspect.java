@@ -16,12 +16,12 @@ public class LoggingAspect {
     private static final Logger logger = LoggerFactory.getLogger(LoggingAspect.class);
 
     @Pointcut("execution(public * com.staimov.employee_directory.controller.*.*(jakarta.servlet.http.HttpServletRequest,..))" +
-            " && !execution(public * com.staimov.employee_directory.controller.CustomErrorController.*(..))")
+            " && !execution(* com.staimov.employee_directory.controller.CustomErrorController.*(..))")
     private void forRequestMethods() {}
 
     @Before("forRequestMethods() && args(request,..)")
     public void before(JoinPoint joinPoint, HttpServletRequest request) {
         String methodName = joinPoint.getSignature().toShortString();
-        logger.debug("{}, {}, {}", methodName, request.getMethod(), request.getRequestURL());
+        logger.info("{}, {}, {}", methodName, request.getMethod(), request.getRequestURL());
     }
 }
