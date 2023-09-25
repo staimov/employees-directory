@@ -33,7 +33,7 @@ public class CustomErrorController extends AbstractErrorController {
         HttpStatus status = getStatus(request);
         Exception e = (Exception) request.getAttribute(RequestDispatcher.ERROR_EXCEPTION);
 
-        logger.error("Something went wrong! Status: {}", status);
+        logger.error("Something went wrong! HTTP Status: {}", status);
 
         if (e != null) {
             logger.error("An exception occurred!", e);
@@ -49,16 +49,18 @@ public class CustomErrorController extends AbstractErrorController {
         Exception e = (Exception) request.getAttribute(RequestDispatcher.ERROR_EXCEPTION);
 
         String message = "Something went wrong!";
-        logger.error(message);
 
         if (status != null) {
             int statusCode = Integer.parseInt(status.toString());
 
             if(statusCode == HttpStatus.NOT_FOUND.value()) {
-                message = "Sorry, we couldn't find the page you're looking for";
+                message = "Sorry, we couldn't find the page you're looking for.";
             }
 
-            logger.error("HTTP Status: {}", status);
+            logger.error("{} HTTP Status: {}", message, status);
+        }
+        else {
+            logger.error(message);
         }
 
         if (e != null) {
