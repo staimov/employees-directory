@@ -17,9 +17,9 @@ public class LoggingAspect {
 
     @Pointcut("execution(public * com.staimov.employee_directory.controller.*.*(jakarta.servlet.http.HttpServletRequest,..))" +
             " && !execution(* com.staimov.employee_directory.controller.CustomErrorController.*(..))")
-    private void forRequestMethods() {}
+    private void forHttpRequestMethods() {}
 
-    @Before("forRequestMethods() && args(request,..)")
+    @Before("forHttpRequestMethods() && args(request,..)")
     public void before(JoinPoint joinPoint, HttpServletRequest request) {
         String methodName = joinPoint.getSignature().toShortString();
         logger.info("{}, {}, {}", methodName, request.getMethod(), request.getRequestURL());
