@@ -22,6 +22,10 @@ public class LoggingAspect {
     @Before("forHttpRequestMethods() && args(request,..)")
     public void before(JoinPoint joinPoint, HttpServletRequest request) {
         String methodName = joinPoint.getSignature().toShortString();
-        logger.info("{}, {}, {}", methodName, request.getMethod(), request.getRequestURL());
+        logger.info("{}, {}, {}, {}",
+                methodName,
+                request.getMethod(),
+                request.getRequestURL(),
+                request.getQueryString());
     }
 }

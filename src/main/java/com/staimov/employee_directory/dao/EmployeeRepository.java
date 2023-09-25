@@ -1,6 +1,7 @@
 package com.staimov.employee_directory.dao;
 
 import com.staimov.employee_directory.entity.Employee;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.PagingAndSortingRepository;
 

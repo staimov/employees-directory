@@ -2,6 +2,10 @@ package com.staimov.employee_directory.service;
 
 import com.staimov.employee_directory.dao.EmployeeRepository;
 import com.staimov.employee_directory.entity.Employee;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,7 +13,7 @@ import java.util.Optional;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService{
-    private EmployeeRepository employeeRepository;
+    private final EmployeeRepository employeeRepository;
 
     public EmployeeServiceImpl(EmployeeRepository employeeRepository) {
         this.employeeRepository = employeeRepository;
@@ -41,5 +45,16 @@ public class EmployeeServiceImpl implements EmployeeService{
     @Override
     public void deleteById(int id) {
         employeeRepository.deleteById(id);
+    }
+
+    @Override
+    public long count() {
+        return employeeRepository.count();
+    }
+
+    @Override
+    public Page<Employee> findAllByOrderByLastNameAsc(int offset, int count) {
+        Pageable pageable = PageRequest.of(offset, count, Sort.by("lastName").ascending());
+        return employeeRepository.findAll(pageable);
     }
 }

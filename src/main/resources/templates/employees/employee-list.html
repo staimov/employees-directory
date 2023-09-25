@@ -25,9 +25,23 @@
 	<div th:insert="~{fragments/tabs :: tabs(currentPage='employees')}"/>
 
 	<a sec:authorize="hasRole('ROLE_MANAGER')" th:href="@{/view/employees/showFormForAdd}"
-	   class="btn btn-primary btn-sm mb-3">
+	   class="btn btn-primary mb-3">
 		Add Employee...
 	</a>
+
+	<div class="row row-cols-auto mb-3 align-items-center">
+		<label for="limit" class="col">Items per page</label>
+		<div class="col">
+			<select id="limit" name="limit" class="form-select"
+					th:onchange="'window.location.href = \'?page=1&limit=\' + this.value'">
+				<option th:selected="${limit == 3}" value="3">3</option>
+				<option th:selected="${limit == 5}" value="5">5</option>
+				<option th:selected="${limit == 10}" value="10">10</option>
+				<option th:selected="${limit == 20}" value="20">20</option>
+			</select>
+		</div>
+	</div>
+
 	<table class="table table-bordered table-striped">
 		<thead class="table-dark">
 			<tr>
@@ -67,6 +81,27 @@
 			</tr>
 		</tbody>		
 	</table>
+
+	<nav>
+		<ul class="pagination">
+			<li class="page-item" th:classappend="${page == 1 ? 'disabled' : ''}">
+				<a class="page-link" th:href="@{/view/employees/showList(page=1, limit=${limit})}">First</a>
+			</li>
+			<li class="page-item" th:classappend="${page == 1 ? 'disabled' : ''}">
+				<a class="page-link" th:href="@{/view/employees/showList(page=${page - 1}, limit=${limit})}">Previous</a>
+			</li>
+			<li class="page-item" th:each="i : ${#numbers.sequence(1, totalPages)}"
+				th:classappend="${page == i ? 'active' : ''}">
+				<a class="page-link" th:href="@{/view/employees/showList(page=${i}, limit=${limit})}" th:text="${i}"></a>
+			</li>
+			<li class="page-item" th:classappend="${page == totalPages ? 'disabled' : ''}">
+				<a class="page-link" th:href="@{/view/employees/showList(page=${page + 1}, limit=${limit})}">Next</a>
+			</li>
+			<li class="page-item" th:classappend="${page == totalPages ? 'disabled' : ''}">
+				<a class="page-link" th:href="@{/view/employees/showList(page=${totalPages}, limit=${limit})}">Last</a>
+			</li>
+		</ul>
+	</nav>
 	
 </div>
 	
