@@ -82,7 +82,7 @@
 		</tbody>		
 	</table>
 
-	<nav>
+	<nav th:if="${totalPages} > 1">
 		<ul class="pagination">
 			<li class="page-item" th:classappend="${page == 1 ? 'disabled' : ''}">
 				<a class="page-link" th:href="@{/view/employees/showList(page=1, limit=${limit})}">First</a>
