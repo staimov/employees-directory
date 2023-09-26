@@ -4,19 +4,14 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Table(name = "employee")
+@Table(name = "employee", schema = "new_employee_directory")
 @Getter
 @Setter
-@ToString
+@ToString(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Employee {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private int id;
-
+public class Employee extends BaseEntity {
     @Column(name = "first_name")
     private String firstName;
 

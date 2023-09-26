@@ -5,9 +5,11 @@ DROP TABLE IF EXISTS `employee`;
 DROP TABLE IF EXISTS `department`;
 
 CREATE TABLE `department` (
-                              `id` int NOT NULL AUTO_INCREMENT,
-                              `name` varchar(45) DEFAULT NULL,
-                              PRIMARY KEY (`id`)
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) DEFAULT NULL,
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb3;
 
 CREATE TABLE `employee` (
@@ -16,6 +18,8 @@ CREATE TABLE `employee` (
   `last_name` varchar(45) DEFAULT NULL,
   `email` varchar(45) DEFAULT NULL,
   `department_id` int NOT NULL,
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb3;
 
@@ -23,16 +27,16 @@ alter table employee
     add constraint employee_department_fk
         foreign key (department_id) references department (id);
 
-INSERT INTO `department` VALUES
-                             (1,'Flight Squadrons'),
-                             (2,'Interrogation Group'),
-                             (3,'Garrison'),
-                             (4,'Command'),
-                             (5,'Warehouse'),
-                             (6,'IT'),
-                             (7,'Hangar');
+INSERT INTO `department`(id, name) VALUES
+     (1,'Flight Squadrons'),
+     (2,'Interrogation Group'),
+     (3,'Garrison'),
+     (4,'Command'),
+     (5,'Warehouse'),
+     (6,'IT'),
+     (7,'Hangar');
 
-INSERT INTO `employee` VALUES 
+INSERT INTO `employee`(id, first_name, last_name, email, department_id) VALUES
 	(1,'Darth','Vader','vader@galactic-empire.gov', 4),
 	(2,'Moradmin','Bast','m.bast@galactic-empire.gov', 4),
 	(3,'Iden','Versio','versio123@mail.com', 1),
@@ -49,10 +53,10 @@ DROP TABLE IF EXISTS `users`;
 --
 
 CREATE TABLE `users` (
-                         `username` varchar(50) NOT NULL,
-                         `password` char(68) NOT NULL,
-                         `enabled` tinyint NOT NULL,
-                         PRIMARY KEY (`username`)
+     `username` varchar(50) NOT NULL,
+     `password` char(68) NOT NULL,
+     `enabled` tinyint NOT NULL,
+     PRIMARY KEY (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
@@ -77,10 +81,10 @@ VALUES
 --
 
 CREATE TABLE `authorities` (
-                               `username` varchar(50) NOT NULL,
-                               `authority` varchar(50) NOT NULL,
-                               UNIQUE KEY `authorities4_idx_1` (`username`,`authority`),
-                               CONSTRAINT `authorities4_ibfk_1` FOREIGN KEY (`username`) REFERENCES `users` (`username`)
+   `username` varchar(50) NOT NULL,
+   `authority` varchar(50) NOT NULL,
+   UNIQUE KEY `authorities4_idx_1` (`username`,`authority`),
+   CONSTRAINT `authorities4_ibfk_1` FOREIGN KEY (`username`) REFERENCES `users` (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --

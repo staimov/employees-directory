@@ -7,19 +7,14 @@ import lombok.*;
 import java.util.Set;
 
 @Entity
-@Table(name = "department")
+@Table(name = "department", schema = "new_employee_directory")
 @Getter
 @Setter
-@ToString
+@ToString(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Department {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private int id;
-
+public class Department extends BaseEntity {
     @Column(name = "name")
     private String name;
 
