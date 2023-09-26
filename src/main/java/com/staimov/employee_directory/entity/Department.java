@@ -3,6 +3,7 @@ package com.staimov.employee_directory.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import java.util.Set;
 
@@ -13,7 +14,7 @@ import java.util.Set;
 @ToString(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
+@SuperBuilder
 public class Department extends BaseEntity {
     @Column(name = "name")
     private String name;

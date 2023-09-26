@@ -2,6 +2,7 @@ package com.staimov.employee_directory.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 @Entity
 @Table(name = "employee", schema = "new_employee_directory")
@@ -10,7 +11,7 @@ import lombok.*;
 @ToString(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
+@SuperBuilder
 public class Employee extends BaseEntity {
     @Column(name = "first_name")
     private String firstName;
