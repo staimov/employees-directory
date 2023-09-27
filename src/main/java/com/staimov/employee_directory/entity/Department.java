@@ -4,7 +4,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.hateoas.RepresentationModel;
+import org.springframework.hateoas.server.core.Relation;
 
+import java.time.LocalDateTime;
 import java.util.Set;
 
 @Entity
@@ -14,8 +19,22 @@ import java.util.Set;
 @ToString(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
-@SuperBuilder
-public class Department extends BaseEntity {
+@Builder
+@Relation(collectionRelation = "departments")
+public class Department extends RepresentationModel<Department> {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private int id;
+
+    @Column(name = "create_time", nullable = false)
+    @CreationTimestamp
+    private LocalDateTime createTime;
+
+    @Column(name = "update_time", nullable = false)
+    @UpdateTimestamp
+    private LocalDateTime updateTime;
+
     @Column(name = "name")
     private String name;
 
