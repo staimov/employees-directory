@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.DispatcherServlet;
 
 import java.util.Collections;
 import java.util.Map;
@@ -31,7 +32,7 @@ public class CustomErrorController extends AbstractErrorController {
                 this.getErrorAttributes(request, ErrorAttributeOptions.defaults());
 
         HttpStatus status = getStatus(request);
-        Exception e = (Exception) request.getAttribute(RequestDispatcher.ERROR_EXCEPTION);
+        Exception e = (Exception) request.getAttribute(DispatcherServlet.EXCEPTION_ATTRIBUTE);
 
         logger.error("Something went wrong! HTTP Status: {}", status);
 
@@ -46,7 +47,7 @@ public class CustomErrorController extends AbstractErrorController {
     @RequestMapping(value = "/error", produces = MediaType.TEXT_HTML_VALUE)
     public String handleError(HttpServletRequest request, Model model) {
         Object status = request.getAttribute(RequestDispatcher.ERROR_STATUS_CODE);
-        Exception e = (Exception) request.getAttribute(RequestDispatcher.ERROR_EXCEPTION);
+        Exception e = (Exception) request.getAttribute(DispatcherServlet.EXCEPTION_ATTRIBUTE);
 
         String message = "Something went wrong!";
 
