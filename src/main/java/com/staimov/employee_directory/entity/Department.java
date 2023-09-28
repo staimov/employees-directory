@@ -1,6 +1,8 @@
 package com.staimov.employee_directory.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
@@ -19,22 +21,9 @@ import java.util.Set;
 @ToString(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
+@SuperBuilder
 @Relation(collectionRelation = "departments")
-public class Department extends RepresentationModel<Department> {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private int id;
-
-    @Column(name = "create_time", nullable = false)
-    @CreationTimestamp
-    private LocalDateTime createTime;
-
-    @Column(name = "update_time", nullable = false)
-    @UpdateTimestamp
-    private LocalDateTime updateTime;
-
+public class Department extends BaseEntity {
     @Column(name = "name")
     private String name;
 
