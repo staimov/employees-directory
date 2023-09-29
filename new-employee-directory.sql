@@ -1,4 +1,4 @@
-CREATE DATABASE  IF NOT EXISTS `new_employee_directory`;
+CREATE DATABASE IF NOT EXISTS `new_employee_directory`;
 USE `new_employee_directory`;
 
 DROP TABLE IF EXISTS `employee`;

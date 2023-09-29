@@ -1,13 +1,20 @@
-[![My Skills](https://skillicons.dev/icons?i=java,spring,hibernate,mysql,html,bootstrap&theme=light)](https://skillicons.dev)
+[![My Skills](https://skillicons.dev/icons?i=java,spring,hibernate,mysql,html,bootstrap,docker&theme=light)](https://skillicons.dev)
 # employees-directory
 
-1. Apply [new-employee-directory.sql](./new-employee-directory.sql) script to MySQL.
-2. Build and run the app.
-3. http://localhost:8080/
+1. Rebuild the project:
+```
+mvn clean install
+```
+2. Build and run docker containers:
+```
+docker compose up -d
+```
+3. Apply [new-employee-directory.sql](./new-employee-directory.sql) script to MySQL.
+4. http://localhost:8080/
 
 ![screenshot](/src/main/resources/static/images/screenshot.jpg?raw=true)
 
-4. http://localhost:8080/swagger-ui/index.html
+5. http://localhost:8080/swagger-ui/index.html
 
 ![screenshot2](/src/main/resources/static/images/screenshot2.jpg?raw=true)
 

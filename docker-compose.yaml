@@ -1,0 +1,36 @@
+version: '3.9'
+services:
+  my-server:
+    build: /
+    ports:
+      - '8080:8080'
+    depends_on:
+      my-mysql:
+        condition: service_healthy
+    networks:
+      - my-network
+  my-mysql:
+    image: mysql:latest
+    restart: unless-stopped
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+    ports:
+      - '63306:3306'
+    expose:
+      - '3306'
+    volumes:
+      - my-mysql:/var/lib/mysql
+    networks:
+      - my-network
+    healthcheck:
+      test: mysqladmin ping -h localhost -u root --password=$$MYSQL_ROOT_PASSWORD
+      start_period: 5s
+      interval: 5s
+      timeout: 5s
+      retries: 55
+volumes:
+  my-mysql:
+    driver: local
+networks:
+  my-network:
+    driver: bridge

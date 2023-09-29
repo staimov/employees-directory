@@ -36,14 +36,14 @@ public class EmployeeUIController {
         model.addAttribute("page", page);
         model.addAttribute("limit", limit);
         model.addAttribute("totalPages", totalPages);
-        return "/employees/employee-list";
+        return "employees/employee-list";
     }
 
     @GetMapping("/showFormForAdd")
     public String showFormForAdd(HttpServletRequest request, Model model) {
         model.addAttribute("employee", new Employee());
         model.addAttribute("departments", departmentService.findAll());
-        return "/employees/employee-form";
+        return "employees/employee-form";
     }
 
     @GetMapping("/showFormForUpdate")
@@ -51,7 +51,7 @@ public class EmployeeUIController {
         Employee employee = employeeService.findById(id);
         model.addAttribute("employee", employee);
         model.addAttribute("departments", departmentService.findAll());
-        return "/employees/employee-form";
+        return "employees/employee-form";
     }
 
     @PostMapping("/save")

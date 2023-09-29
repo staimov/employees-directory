@@ -11,11 +11,11 @@ public class LoginController {
 
     @GetMapping("/showMyLoginPage")
     public String showMyLoginPage(HttpServletRequest request) {
-        return "/security/fancy-login";
+        return "security/fancy-login";
     }
 
     @GetMapping("/access-denied")
     public String showAccessDenied(HttpServletRequest request) {
-        return "/security/access-denied";
+        return "security/access-denied";
     }
 }

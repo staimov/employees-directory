@@ -22,21 +22,21 @@ public class DepartmentUIController {
     public String listDepartments(HttpServletRequest request, Model model) {
         // add to the spring model
         model.addAttribute("departments", departmentService.findAllByOrderByLastNameAsc());
-        return "/departments/department-list";
+        return "departments/department-list";
     }
 
     @GetMapping("/showFormForAdd")
     public String showFormForAdd(HttpServletRequest request, Model model) {
         Department department = new Department();
         model.addAttribute("department", department);
-        return "/departments/department-form";
+        return "departments/department-form";
     }
 
     @GetMapping("/showFormForUpdate")
     public String showFormForUpdate(HttpServletRequest request, @RequestParam("departmentId") int id, Model model) {
         Department department = departmentService.findById(id);
         model.addAttribute("department", department);
-        return "/departments/department-form";
+        return "departments/department-form";
     }
 
     @PostMapping("/save")
