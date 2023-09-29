@@ -1,4 +1,4 @@
-[![My Skills](https://skillicons.dev/icons?i=java,spring,hibernate,mysql,html,bootstrap&theme=light)](https://skillicons.dev)
+[![My Skills](https://skillicons.dev/icons?i=java,spring,hibernate,mysql,html,bootstrap,docker&theme=light)](https://skillicons.dev)
 # employees-directory
 
 1. Apply [new-employee-directory.sql](./new-employee-directory.sql) script to MySQL.
