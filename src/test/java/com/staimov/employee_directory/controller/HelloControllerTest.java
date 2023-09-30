@@ -2,7 +2,6 @@ package com.staimov.employee_directory.controller;
 
 import com.staimov.employee_directory.entity.Hello;
 import com.staimov.employee_directory.service.HelloService;
-import com.staimov.employee_directory.service.HelloServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
