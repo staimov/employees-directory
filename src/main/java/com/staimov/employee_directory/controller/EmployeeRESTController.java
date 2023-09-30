@@ -20,7 +20,7 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 @RestController
-@RequestMapping(value = "/api/employees")
+@RequestMapping(value = "/api/employees", produces = "application/hal+json")
 public class EmployeeRESTController {
 
     private final EmployeeService employeeService;
@@ -50,7 +50,7 @@ public class EmployeeRESTController {
     }
 
     @GetMapping("/{employeeId}")
-    public EntityModel<Employee> getEmployeeById(HttpServletRequest request,
+    public @ResponseBody EntityModel<Employee> getEmployeeById(HttpServletRequest request,
                                                     @PathVariable int employeeId) {
 
         Employee employee = employeeService.findById(employeeId);
