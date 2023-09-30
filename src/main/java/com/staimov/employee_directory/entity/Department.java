@@ -19,6 +19,7 @@ import java.util.Set;
 @Getter
 @Setter
 @ToString(callSuper = true)
+@EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
@@ -32,6 +33,7 @@ public class Department extends BaseEntity {
             orphanRemoval = false,
             fetch = FetchType.LAZY)
     @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     @JsonIgnore
     private Set<Employee> employees;
 }
