@@ -4,6 +4,13 @@ import com.staimov.employee_directory.entity.Department;
 import com.staimov.employee_directory.entity.Employee;
 import com.staimov.employee_directory.service.DepartmentService;
 import com.staimov.employee_directory.service.EmployeeService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
@@ -21,6 +28,7 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 @RestController
 @RequestMapping(value = "/api/employees", produces = "application/hal+json")
+@Tag(name = "Employees", description = "Employee management APIs")
 public class EmployeeRESTController {
 
     private final EmployeeService employeeService;
@@ -49,9 +57,18 @@ public class EmployeeRESTController {
         return CollectionModel.of(employeeModels, selfLink);
     }
 
+    @Operation(summary = "Get an employee by employeeId",
+            description = "Returns an employee as per the employeeId",
+            tags = { "employee", "get" })
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Successfully retrieved"),
+            @ApiResponse(responseCode = "404", description = "Not found - The employee was not found", content = { @Content(schema = @Schema()) }),
+            @ApiResponse(responseCode = "401", description = "Unauthorized", content = { @Content(schema = @Schema()) }),
+            @ApiResponse(responseCode = "500", description = "Internal Server Error", content = { @Content(schema = @Schema()) })
+    })
     @GetMapping("/{employeeId}")
     public @ResponseBody EntityModel<Employee> getEmployeeById(HttpServletRequest request,
-                                                    @PathVariable int employeeId) {
+                    @PathVariable @Parameter(name = "employeeId", description = "Employee id", example = "1") int employeeId) {
 
         Employee employee = employeeService.findById(employeeId);
         if (employee == null) {

@@ -26,7 +26,7 @@ public class CustomErrorController extends AbstractErrorController {
         super(errorAttributes, Collections.emptyList());
     }
 
-    @RequestMapping(value = "/error", produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/error", produces = "application/hal+json")
     public ResponseEntity<Map<String, Object>> handleError(HttpServletRequest request) {
         Map<String, Object> body =
                 this.getErrorAttributes(request, ErrorAttributeOptions.defaults());
