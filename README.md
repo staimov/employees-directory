@@ -16,7 +16,7 @@ docker compose up -d
 
 ![screenshot](/src/main/resources/static/images/screenshot.jpg?raw=true)
 
-5. http://localhost:8080/swagger-ui/index.html
+5. http://localhost:8080/explorer/index.html#uri=/api/employees
 
 ![screenshot2](/src/main/resources/static/images/screenshot2.jpg?raw=true)
 
