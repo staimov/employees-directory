@@ -69,6 +69,7 @@ CREATE TABLE `users` (
 -- Default passwords here are: fun123
 --
 
+-- Default passwords are the same as names
 INSERT INTO `users`
 VALUES
     ('foo','{bcrypt}$2a$10$JHuRpQmlayNh9JwcFYxRmunsvNv8j.IiXzw49NN207cMrXM7TtOQC',1),
