@@ -21,7 +21,7 @@ Default users:
 
 ![screenshot](/src/main/resources/static/images/screenshot.jpg?raw=true)
 
-6HAL Explorer: http://localhost:8080/explorer/index.html#uri=/api/employees
+6. HAL Explorer: http://localhost:8080/explorer/index.html#uri=/api/employees
 
 ![screenshot2](/src/main/resources/static/images/screenshot2.jpg?raw=true)
 
