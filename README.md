@@ -12,11 +12,11 @@ mvn clean install
 docker compose up -d
 ```
 3. Apply [new-employee-directory.sql](./new-employee-directory.sql) script to MySQL (the script also adds default accounts with passwords).
-4. http://localhost:8080/
+4. UI: http://localhost:8080/
 
 ![screenshot](/src/main/resources/static/images/screenshot.jpg?raw=true)
 
-5. http://localhost:8080/explorer/index.html#uri=/api/employees
+5. HAL Explorer: http://localhost:8080/explorer/index.html#uri=/api/employees
 
 ![screenshot2](/src/main/resources/static/images/screenshot2.jpg?raw=true)
 
