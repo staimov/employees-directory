@@ -11,7 +11,7 @@ mvn clean install
 ```
 docker compose up -d
 ```
-3. Apply [new-employee-directory.sql](./new-employee-directory.sql) script to MySQL.
+3. Apply [new-employee-directory.sql](./new-employee-directory.sql) script to MySQL (the script also adds default accounts with passwords).
 4. http://localhost:8080/
 
 ![screenshot](/src/main/resources/static/images/screenshot.jpg?raw=true)
