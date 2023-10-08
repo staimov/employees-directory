@@ -15,7 +15,7 @@ docker compose up -d
 ```
 3. Apply [new-employee-directory.sql](./new-employee-directory.sql) script to MySQL.
 
-Default users:
+Default user accounts:
 
 ![users](/src/main/resources/static/images/users.jpg?raw=true)
 
