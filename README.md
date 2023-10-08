@@ -1,6 +1,8 @@
 [![My Skills](https://skillicons.dev/icons?i=java,spring,hibernate,mysql,html,bootstrap,docker&theme=light)](https://skillicons.dev)
 # employees-directory
 
+An employee directory example.
+
 ## Usage
 
 1. Rebuild the project:
