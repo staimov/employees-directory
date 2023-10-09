@@ -1,13 +1,13 @@
 package com.staimov.employee_directory.controller;
 
+import com.staimov.employee_directory.controller.assembler.DepartmentModelAssembler;
+import com.staimov.employee_directory.controller.assembler.EmployeeModelAssembler;
 import com.staimov.employee_directory.entity.Department;
 import com.staimov.employee_directory.entity.Employee;
+import com.staimov.employee_directory.exception.ResourceNotFoundException;
 import com.staimov.employee_directory.service.DepartmentService;
 import com.staimov.employee_directory.service.EmployeeService;
 import jakarta.servlet.http.HttpServletRequest;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.context.annotation.DependsOn;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.IanaLinkRelations;

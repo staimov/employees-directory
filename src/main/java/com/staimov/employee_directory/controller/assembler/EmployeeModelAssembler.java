@@ -1,8 +1,10 @@
-package com.staimov.employee_directory.controller;
+package com.staimov.employee_directory.controller.assembler;
 
+import com.staimov.employee_directory.controller.EmployeeRESTController;
 import com.staimov.employee_directory.entity.Employee;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.server.RepresentationModelAssembler;
+import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 import org.springframework.stereotype.Component;
 
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
@@ -15,7 +17,7 @@ public class EmployeeModelAssembler implements RepresentationModelAssembler<Empl
     public EntityModel<Employee> toModel(Employee employee) {
         int employeeId = employee.getId();
         return EntityModel.of(employee,
-                linkTo(methodOn(EmployeeRESTController.class).getEmployeeById(null, employeeId))
+                WebMvcLinkBuilder.linkTo(methodOn(EmployeeRESTController.class).getEmployeeById(null, employeeId))
                         .withSelfRel(),
                 linkTo(methodOn(EmployeeRESTController.class).getAllEmployees(null))
                         .withRel("employees"),

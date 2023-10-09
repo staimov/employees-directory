@@ -1,7 +1,9 @@
 package com.staimov.employee_directory.controller;
 
+import com.staimov.employee_directory.controller.assembler.EmployeeModelAssembler;
 import com.staimov.employee_directory.entity.Department;
 import com.staimov.employee_directory.entity.Employee;
+import com.staimov.employee_directory.exception.ResourceNotFoundException;
 import com.staimov.employee_directory.service.DepartmentService;
 import com.staimov.employee_directory.service.EmployeeService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -9,7 +11,6 @@ import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.IanaLinkRelations;
 import org.springframework.hateoas.Link;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

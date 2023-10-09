@@ -1,5 +1,7 @@
 package com.staimov.employee_directory.controller;
 
+import com.staimov.employee_directory.controller.assembler.EmployeeModelAssembler;
+import com.staimov.employee_directory.entity.Department;
 import com.staimov.employee_directory.entity.Employee;
 import com.staimov.employee_directory.service.DepartmentService;
 import com.staimov.employee_directory.service.EmployeeService;
@@ -38,6 +40,8 @@ public class EmployeeRESTControllerTest {
     public void getEmployeeByIdWithValidIdShouldReturnEmployee() throws Exception {
         int employeeId = 1;
         String path = BASE_PATH + "/" + employeeId;
+        Department department = new Department();
+        department.setName("Baz");
         Employee employee = Employee.builder()
                 .id(employeeId)
                 .firstName("Foo")
@@ -45,6 +49,7 @@ public class EmployeeRESTControllerTest {
                 .email("foo@mail.com")
                 .createTime(LocalDateTime.now())
                 .updateTime(LocalDateTime.now())
+                .department(department)
                 .build();
 
 

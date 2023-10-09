@@ -1,4 +1,4 @@
-package com.staimov.employee_directory.controller;
+package com.staimov.employee_directory.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
