@@ -45,11 +45,16 @@
 	<table class="table table-bordered table-striped">
 		<thead class="table-dark">
 			<tr>
-				<th>#</th>
-				<th>First Name</th>
-				<th>Last Name</th>
-				<th>Email</th>
-				<th>Department</th>
+				<th><a th:href="@{/view/employees/showList(page=1, limit=${limit}, sortField='id', sortDir=${reverseSortDir})}">
+					#</a></th>
+				<th><a th:href="@{/view/employees/showList(page=1, limit=${limit}, sortField='firstName', sortDir=${reverseSortDir})}">
+					First Name</a></th>
+				<th><a th:href="@{/view/employees/showList(page=1, limit=${limit}, sortField='lastName', sortDir=${reverseSortDir})}">
+					Last Name</a></th>
+				<th><a th:href="@{/view/employees/showList(page=1, limit=${limit}, sortField='email', sortDir=${reverseSortDir})}">
+					Email</a></th>
+				<th><a th:href="@{/view/employees/showList(page=1, limit=${limit}, sortField='department', sortDir=${reverseSortDir})}">
+					Department</a></th>
 				<th>Action</th>
 			</tr>
 		</thead>
@@ -85,20 +90,24 @@
 	<nav th:if="${totalPages} > 1">
 		<ul class="pagination">
 			<li class="page-item" th:classappend="${page == 1 ? 'disabled' : ''}">
-				<a class="page-link" th:href="@{/view/employees/showList(page=1, limit=${limit})}">First</a>
+				<a class="page-link" th:href="@{/view/employees/showList(page=1, limit=${limit}, sortField=${sortField}, sortDir=${sortDir})}">
+					First</a>
 			</li>
 			<li class="page-item" th:classappend="${page == 1 ? 'disabled' : ''}">
-				<a class="page-link" th:href="@{/view/employees/showList(page=${page - 1}, limit=${limit})}">Previous</a>
+				<a class="page-link" th:href="@{/view/employees/showList(page=${page - 1}, limit=${limit}, sortField=${sortField}, sortDir=${sortDir})}">
+					Previous</a>
 			</li>
 			<li class="page-item" th:each="i : ${#numbers.sequence(1, totalPages)}"
 				th:classappend="${page == i ? 'active' : ''}">
-				<a class="page-link" th:href="@{/view/employees/showList(page=${i}, limit=${limit})}" th:text="${i}"></a>
+				<a class="page-link" th:href="@{/view/employees/showList(page=${i}, limit=${limit}, sortField=${sortField}, sortDir=${sortDir})}" th:text="${i}"></a>
 			</li>
 			<li class="page-item" th:classappend="${page == totalPages ? 'disabled' : ''}">
-				<a class="page-link" th:href="@{/view/employees/showList(page=${page + 1}, limit=${limit})}">Next</a>
+				<a class="page-link" th:href="@{/view/employees/showList(page=${page + 1}, limit=${limit}, sortField=${sortField}, sortDir=${sortDir})}">
+					Next</a>
 			</li>
 			<li class="page-item" th:classappend="${page == totalPages ? 'disabled' : ''}">
-				<a class="page-link" th:href="@{/view/employees/showList(page=${totalPages}, limit=${limit})}">Last</a>
+				<a class="page-link" th:href="@{/view/employees/showList(page=${totalPages}, limit=${limit}, sortField=${sortField}, sortDir=${sortDir})}">
+					Last</a>
 			</li>
 		</ul>
 	</nav>

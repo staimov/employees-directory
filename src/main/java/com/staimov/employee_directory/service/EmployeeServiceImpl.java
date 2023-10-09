@@ -25,11 +25,6 @@ public class EmployeeServiceImpl implements EmployeeService{
     }
 
     @Override
-    public List<Employee> findAllByOrderByLastNameAsc() {
-        return employeeRepository.findAllByOrderByLastNameAsc();
-    }
-
-    @Override
     public Employee findById(int id) {
         Optional<Employee> result = employeeRepository.findById(id);
         return result.orElse(null);
@@ -53,8 +48,13 @@ public class EmployeeServiceImpl implements EmployeeService{
     }
 
     @Override
-    public Page<Employee> findAllByOrderByLastNameAsc(int offset, int count) {
-        Pageable pageable = PageRequest.of(offset, count, Sort.by("lastName").ascending());
+    public Page<Employee> findAllPaginated(int offset, int count, String sortField, String sortDirection) {
+        Sort sort = sortDirection.equalsIgnoreCase(Sort.Direction.ASC.name())
+                ? Sort.by(sortField).ascending()
+                : Sort.by(sortField).descending();
+
+        Pageable pageable = PageRequest.of(offset, count, sort);
+
         return employeeRepository.findAll(pageable);
     }
 }

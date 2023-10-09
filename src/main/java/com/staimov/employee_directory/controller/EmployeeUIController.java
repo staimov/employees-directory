@@ -27,15 +27,21 @@ public class EmployeeUIController {
     @GetMapping("/showList")
     public String listEmployees(HttpServletRequest request, Model model,
                                 @RequestParam(value = "page", required = false, defaultValue = "1") int page,
-                                @RequestParam(value = "limit", required = false, defaultValue = "5") int limit) {
+                                @RequestParam(value = "limit", required = false, defaultValue = "5") int limit,
+                                @RequestParam(value = "sortField", required = false, defaultValue = "lastName") String sortField,
+                                @RequestParam(value = "sortDir", required = false, defaultValue = "asc") String sortDir) {
 
-        Page<Employee> employeePage = employeeService.findAllByOrderByLastNameAsc(page - 1, limit);
+        Page<Employee> employeePage = employeeService.findAllPaginated(page - 1, limit, sortField, sortDir);
         int totalPages = employeePage.getTotalPages();
         // add to the spring model
         model.addAttribute("employees", employeePage.toList());
         model.addAttribute("page", page);
         model.addAttribute("limit", limit);
         model.addAttribute("totalPages", totalPages);
+        model.addAttribute("sortField", sortField);
+        model.addAttribute("sortDir", sortDir);
+        model.addAttribute("reverseSortDir", sortDir.equals("asc") ? "desc" : "asc");
+
         return "employees/employee-list";
     }
 

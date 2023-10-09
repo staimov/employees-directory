@@ -7,10 +7,10 @@ import java.util.List;
 
 public interface EmployeeService {
     List<Employee> findAll();
-    List<Employee> findAllByOrderByLastNameAsc();
     Employee findById(int id);
     Employee save(Employee employee);
     void deleteById(int id);
     long count();
-    Page<Employee> findAllByOrderByLastNameAsc(int offset, int count);
+
+    Page<Employee> findAllPaginated(int offset, int count, String sortField, String sortDirection);
 }
