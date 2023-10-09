@@ -1,6 +1,8 @@
 [![My Skills](https://skillicons.dev/icons?i=java,spring,hibernate,mysql,html,bootstrap,docker&theme=light)](https://skillicons.dev)
 # employees-directory
 
+An employee directory example (ui+rest+db).
+
 ## Usage
 
 1. Rebuild the project:
@@ -13,7 +15,7 @@ docker compose up -d
 ```
 3. Apply [new-employee-directory.sql](./new-employee-directory.sql) script to MySQL.
 
-Default users:
+Default user accounts:
 
 ![users](/src/main/resources/static/images/users.jpg?raw=true)
 
@@ -21,7 +23,7 @@ Default users:
 
 ![screenshot](/src/main/resources/static/images/screenshot.jpg?raw=true)
 
-6HAL Explorer: http://localhost:8080/explorer/index.html#uri=/api/employees
+6. HAL Explorer: http://localhost:8080/explorer/index.html#uri=/api/employees
 
 ![screenshot2](/src/main/resources/static/images/screenshot2.jpg?raw=true)
 
