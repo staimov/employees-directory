@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface DepartmentService {
     List<Department> findAll();
-    List<Department> findAllByOrderByLastNameAsc();
+    List<Department> findAllByOrderByNameAsc();
     Department findById(int id);
     Department save(Department department);
     void deleteById(int id);

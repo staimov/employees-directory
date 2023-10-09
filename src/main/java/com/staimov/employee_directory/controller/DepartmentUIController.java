@@ -21,7 +21,7 @@ public class DepartmentUIController {
     @GetMapping("/showList")
     public String listDepartments(HttpServletRequest request, Model model) {
         // add to the spring model
-        model.addAttribute("departments", departmentService.findAllByOrderByLastNameAsc());
+        model.addAttribute("departments", departmentService.findAllByOrderByNameAsc());
         return "departments/department-list";
     }
 

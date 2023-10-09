@@ -21,7 +21,7 @@ public class DepartmentServiceImpl implements DepartmentService {
     }
 
     @Override
-    public List<Department> findAllByOrderByLastNameAsc() {
+    public List<Department> findAllByOrderByNameAsc() {
         return departmentRepository.findAllByOrderByNameAsc();
     }
 
