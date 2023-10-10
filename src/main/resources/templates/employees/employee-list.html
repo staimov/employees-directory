@@ -45,16 +45,21 @@
 	<table class="table table-bordered table-striped">
 		<thead class="table-dark">
 			<tr>
-				<th><a th:href="@{/view/employees/showList(page=1, limit=${limit}, sortField='id', sortDir=${reverseSortDir})}">
-					#</a></th>
-				<th><a th:href="@{/view/employees/showList(page=1, limit=${limit}, sortField='firstName', sortDir=${reverseSortDir})}">
-					First Name</a></th>
-				<th><a th:href="@{/view/employees/showList(page=1, limit=${limit}, sortField='lastName', sortDir=${reverseSortDir})}">
-					Last Name</a></th>
-				<th><a th:href="@{/view/employees/showList(page=1, limit=${limit}, sortField='email', sortDir=${reverseSortDir})}">
-					Email</a></th>
-				<th><a th:href="@{/view/employees/showList(page=1, limit=${limit}, sortField='department', sortDir=${reverseSortDir})}">
-					Department</a></th>
+				<th><a class="text-decoration-none text-white"
+					th:href="@{/view/employees/showList(page=1, limit=${limit}, sortField='id', sortDir=${reverseSortDir})}"
+					th:text="'#' + (${sortField} == 'id' ? (${sortDir} == 'asc' ? ' &#x25B2;' : ' &#x25BC;') : '')"/></th>
+				<th><a class="text-decoration-none text-white"
+				   th:href="@{/view/employees/showList(page=1, limit=${limit}, sortField='firstName', sortDir=${reverseSortDir})}"
+				   th:text="'First Name' + (${sortField} == 'firstName' ? (${sortDir} == 'asc' ? ' &#x25B2;' : ' &#x25BC;') : '')"/></th>
+				<th><a class="text-decoration-none text-white"
+					th:href="@{/view/employees/showList(page=1, limit=${limit}, sortField='lastName', sortDir=${reverseSortDir})}"
+					th:text="'Last Name' + (${sortField} == 'lastName' ? (${sortDir} == 'asc' ? ' &#x25B2;' : ' &#x25BC;') : '')"/></th>
+				<th><a class="text-decoration-none text-white"
+				  	th:href="@{/view/employees/showList(page=1, limit=${limit}, sortField='email', sortDir=${reverseSortDir})}"
+				    th:text="'Email' + (${sortField} == 'email' ? (${sortDir} == 'asc' ? ' &#x25B2;' : ' &#x25BC;') : '')"/></th>
+				<th><a class="text-decoration-none text-white"
+					th:href="@{/view/employees/showList(page=1, limit=${limit}, sortField='department', sortDir=${reverseSortDir})}"
+					th:text="'Department' + (${sortField} == 'department' ? (${sortDir} == 'asc' ? ' &#x25B2;' : ' &#x25BC;') : '')"/></th>
 				<th>Action</th>
 			</tr>
 		</thead>
