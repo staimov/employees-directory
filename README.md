@@ -17,7 +17,11 @@ docker compose up -d
 
 Default user accounts:
 
-![users](/src/main/resources/static/images/users.jpg?raw=true)
+| username  | password | roles                |
+|:----------|:---------|:---------------------|
+| admin     | admin    | ADMIN, MANAGER, USER |
+| homer     | homer    | MANAGER, USER        |
+| foo       | foo      | USER                 |
 
 5. UI: http://localhost:8080/
 
