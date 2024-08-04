@@ -32,9 +32,13 @@ public class CustomErrorController extends AbstractErrorController {
                 this.getErrorAttributes(request, ErrorAttributeOptions.defaults());
 
         HttpStatus status = getStatus(request);
+
+        String origialUri = (String) request.getAttribute(
+                RequestDispatcher.FORWARD_REQUEST_URI);
+
         Exception e = (Exception) request.getAttribute(DispatcherServlet.EXCEPTION_ATTRIBUTE);
 
-        logger.error("Something went wrong! HTTP Status: {}", status);
+        logger.error("Something went wrong! HTTP Status: {}, original uri: {}", status, origialUri);
 
         if (e != null) {
             logger.error("An exception occurred!", e);

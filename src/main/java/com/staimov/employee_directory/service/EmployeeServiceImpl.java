@@ -2,6 +2,7 @@ package com.staimov.employee_directory.service;
 
 import com.staimov.employee_directory.dao.EmployeeRepository;
 import com.staimov.employee_directory.entity.Employee;
+import io.micrometer.core.annotation.Timed;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -48,6 +49,7 @@ public class EmployeeServiceImpl implements EmployeeService{
     }
 
     @Override
+    @Timed(value = "getEmployees", description = "Time taken to get employees")
     public Page<Employee> findAllPaginated(int offset, int count, String sortField, String sortDirection) {
         Sort sort = sortDirection.equalsIgnoreCase(Sort.Direction.ASC.name())
                 ? Sort.by(sortField).ascending()

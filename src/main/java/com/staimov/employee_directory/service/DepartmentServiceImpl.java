@@ -2,6 +2,7 @@ package com.staimov.employee_directory.service;
 
 import com.staimov.employee_directory.dao.DepartmentRepository;
 import com.staimov.employee_directory.entity.Department;
+import io.micrometer.core.annotation.Timed;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,6 +22,7 @@ public class DepartmentServiceImpl implements DepartmentService {
     }
 
     @Override
+    @Timed("getDepartments")
     public List<Department> findAllByOrderByNameAsc() {
         return departmentRepository.findAllByOrderByNameAsc();
     }

@@ -23,7 +23,7 @@ public class SecurityConfig {
     @Bean
     @Order(1)
     public SecurityFilterChain apiFilterChain(HttpSecurity http) throws Exception {
-        http.securityMatcher("/api/**").authorizeHttpRequests()
+        http.securityMatcher("/api/**", "/actuator/**").authorizeHttpRequests()
                 .requestMatchers(HttpMethod.GET, "/api/employees").hasRole("USER")
                 .requestMatchers(HttpMethod.GET, "/api/employees/**").hasRole("USER")
                 .requestMatchers(HttpMethod.POST, "/api/employees").hasRole("MANAGER")
@@ -34,6 +34,7 @@ public class SecurityConfig {
                 .requestMatchers(HttpMethod.POST, "/api/departments").hasRole("MANAGER")
                 .requestMatchers(HttpMethod.PUT, "/api/departments").hasRole("MANAGER")
                 .requestMatchers(HttpMethod.DELETE, "/api/departments/**").hasRole("ADMIN")
+                .requestMatchers("/actuator/**").hasRole("ADMIN")
                 .requestMatchers("/api/**").authenticated()
                 .and().httpBasic()
                 .and().csrf().disable();
@@ -55,6 +56,7 @@ public class SecurityConfig {
                         .requestMatchers("/view/department/showFormForUpdate").hasRole("MANAGER")
                         .requestMatchers("/view/department/save").hasRole("MANAGER")
                         .requestMatchers("/view/department/delete").hasRole("ADMIN")
+                        .requestMatchers("/actuator/**").hasRole("ADMIN")
                         .requestMatchers("/").permitAll()
                         .requestMatchers("/error").permitAll()
                         .requestMatchers("/images/**").permitAll()

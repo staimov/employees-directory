@@ -80,6 +80,10 @@
 			<artifactId>guava</artifactId>
 			<version>32.1.2-jre</version>
 		</dependency>
+		<dependency>
+			<groupId>io.micrometer</groupId>
+			<artifactId>micrometer-registry-prometheus</artifactId>
+		</dependency>
 
 		<!-- aspectj support-->
 		<dependency>

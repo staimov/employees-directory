@@ -9,6 +9,7 @@ services:
         condition: service_healthy
     networks:
       - my-network
+
   my-mysql:
     image: mysql:latest
     restart: unless-stopped
@@ -28,8 +29,30 @@ services:
       interval: 5s
       timeout: 5s
       retries: 55
+
+  my-prometheus:
+    image: prom/prometheus
+    ports:
+      - 9090:9090
+    volumes:
+      - ./config/prometheus.yml:/etc/prometheus/prometheus.yml
+    networks:
+      - my-network
+
+  my-grafana:
+    image: grafana/grafana
+    ports:
+      - 3000:3000
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    networks:
+      - my-network
+
 volumes:
   my-mysql:
+    driver: local
+  my-prometheus:
     driver: local
 networks:
   my-network:
